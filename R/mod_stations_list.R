@@ -22,15 +22,16 @@ mod_stations_list_server <- function(input, output, session){
   ns <- session$ns
 
   output$list <- renderUI({
-    store$data$stations %>% pmap(function(id, name, description, title, station_lat, station_lon){
-      id = paste0(id)
+    store$data$stations %>% pmap(function(...){
+      args = list(...)
+      id = paste0(args$id)
       
       observeEvent(input[[id]], {
         store$setSelectedStation(id)
       })
       
       tagList(
-        actionButton(ns(id), label = name, width = '100%', style='font-size:100%'),
+        actionButton(ns(id), label = args$name, width = '100%', style='font-size:100%'),
         hr()
       )
     })

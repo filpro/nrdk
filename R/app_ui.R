@@ -17,6 +17,7 @@ app_ui <- function(request) {
           gridTemplate,
           map = mod_map_ui("map_ui_1"),
           info = mod_info_ui("info_ui_1"),
+          route_info = mod_route_info_ui("route_info_ui_1"),
           container_style = "grid-gap: 1vh"
         ),
         width = 11
