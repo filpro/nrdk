@@ -32,7 +32,7 @@ mod_map_server <- function(input, output, session){
         icon = store$crossIcon,
         layerId = store$data$stations$id
       ) %>%
-      addControlGPS()
+      leaflet.extras::addControlGPS()
   })
   
   observeEvent(input[[paste0("map","_marker_click")]], {
